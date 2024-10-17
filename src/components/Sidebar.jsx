@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   Drawer,
   List,
@@ -10,7 +10,12 @@ import {
 } from "@mui/material";
 import { routes } from "../data/constant";
 import { LogoIcon, DoubleArrowIcon } from "../assets/icons";
+import { getActiveRoute } from "../lib/utils";
+
 const Sidebar = ({ toggleDrawer, drawerWidth, collapsed }) => {
+  const location = useLocation();
+  const activeRoute = getActiveRoute(routes, location);
+
   return (
     <Drawer
       sx={{
@@ -77,10 +82,20 @@ const Sidebar = ({ toggleDrawer, drawerWidth, collapsed }) => {
               <ListItemButton
                 sx={{
                   borderRadius: "10px",
+                  gap: "1rem",
                 }}
-                className="iconHover"
+                className={`iconHover ${
+                  activeRoute?.path === route.path ? "activeRoute" : ""
+                }`}
               >
-                <ListItemIcon> {route.icon && <route.icon />} </ListItemIcon>
+                <ListItemIcon
+                  sx={{
+                    minWidth: "fit-content",
+                  }}
+                >
+                  {" "}
+                  {route.icon && <route.icon />}{" "}
+                </ListItemIcon>
                 <ListItemText primary={route.name} />
               </ListItemButton>
             ) : (

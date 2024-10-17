@@ -32,3 +32,14 @@ body {
   -ms-transition: all 0.3s;
   -o-transition: all 0.3s;
 }
+.activeRoute {
+  background-color: #fff !important;
+  color: #026980 !important;
+  svg {
+    fill: #ffffff !important;
+
+    path {
+      fill: #026980 !important;
+    }
+  }
+}
