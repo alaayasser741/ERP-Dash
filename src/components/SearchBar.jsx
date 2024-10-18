@@ -1,6 +1,28 @@
 import { SearchIcon, PlusIcon } from "../assets/icons";
 
+import { styled } from "@mui/material/styles";
+import Dialog from "@mui/material/Dialog";
+import { useState } from "react";
+import AddNewEmployee from "./employee/addNewEmployee";
+
+const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+  "& .MuiDialogContent-root": {
+    padding: theme.spacing(2),
+  },
+  "& .MuiDialogActions-root": {
+    padding: theme.spacing(1),
+  },
+}));
+
 const SearchBar = ({ action }) => {
+  const [open, setOpen] = useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <section className="p-4 flex items-center gap-4 flex-col sm:flex-row">
       <div className="relative flex-1">
@@ -14,12 +36,19 @@ const SearchBar = ({ action }) => {
         </div>
       </div>
       <button
-        onClick={action}
+        onClick={handleClickOpen}
         className="h-[48px] bg-primary text-white text-sm rounded-[50px] focus:outline-none px-6 flex items-center gap-1"
       >
         <PlusIcon />
         <span className="ml-2">New Employee</span>
       </button>
+
+      <AddNewEmployee
+        open={open}
+        handleClose={handleClose}
+        BootstrapDialog={BootstrapDialog}
+        action={action}
+      />
     </section>
   );
 };
