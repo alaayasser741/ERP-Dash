@@ -1,13 +1,20 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { routes } from "../data/constant";
 import { Sidebar } from "../components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavBar } from "../components";
 
 const AppRouter = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [drawerWidth, setDrawerWidth] = useState(240);
 
+  // ! if screen is small, collapse the sidebar
+  useEffect(() => {
+    if (window.innerWidth < 960) {
+      setCollapsed(true);
+      setDrawerWidth(60);
+    }
+  }, []);
   const toggleDrawer = () => {
     setCollapsed(!collapsed);
     setDrawerWidth(collapsed ? 240 : 60);
