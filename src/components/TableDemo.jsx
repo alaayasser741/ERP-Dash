@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useTable } from "react-table";
-import React, { useState } from "react";
+import { useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -8,6 +8,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Pagination from "@mui/material/Pagination";
+import { SearchBar } from "../components";
 
 const TableDemo = ({ data, columns }) => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
@@ -33,7 +34,16 @@ const TableDemo = ({ data, columns }) => {
 
   return (
     <>
-      <TableContainer>
+      <TableContainer
+        sx={{
+          boxShadow: " 0px 3px 15px 0px #EEEEEE80",
+          borderRadius: "8px",
+          overflow: "hidden",
+          border: "0.75px solid #F8F9FA",
+          backgroundColor: "#FFFFFF",
+        }}
+      >
+        <SearchBar />
         <Table {...getTableProps()}>
           <TableHead>
             {headerGroups.map((headerGroup) => {

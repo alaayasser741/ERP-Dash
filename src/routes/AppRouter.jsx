@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { routes } from "../data/constant";
 import { Sidebar } from "../components";
 import { useState } from "react";
+import { NavBar } from "../components";
 
 const AppRouter = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -20,16 +21,19 @@ const AppRouter = () => {
         toggleDrawer={toggleDrawer}
       />
 
-      <div style={{ marginLeft: `${drawerWidth}px`, padding: "20px" }}>
-        <Routes>
-          {routes.map((route) => (
-            <Route
-              key={route.path}
-              path={route.path}
-              element={<route.component />}
-            />
-          ))}
-        </Routes>
+      <div style={{ marginLeft: `${drawerWidth}px` }}>
+        <NavBar />
+        <div style={{ padding: "20px" }}>
+          <Routes>
+            {routes.map((route) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={<route.component />}
+              />
+            ))}
+          </Routes>
+        </div>
       </div>
     </Router>
   );
