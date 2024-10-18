@@ -12,7 +12,7 @@ import settings from "../pages/settings";
 const routes = [
   {
     name: "Dashboard",
-    path: "/dashboard",
+    path: "/",
     component: Dashboard,
     icon: DashboardIcon,
   },
