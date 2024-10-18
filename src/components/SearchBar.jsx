@@ -3,7 +3,7 @@ import { SearchIcon, PlusIcon } from "../assets/icons";
 import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
 import { useState } from "react";
-import AddNewEmployee from "./employee/addNewEmployee";
+import AddNewEmployee from "./employee/AddNewEmployee";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
