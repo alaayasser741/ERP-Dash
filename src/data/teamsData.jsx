@@ -169,7 +169,6 @@ export const teamColumns = [
     },
   },
   {
-    Header: "Action",
     accessor: "action",
     Cell: ({ row }) => {
       return (

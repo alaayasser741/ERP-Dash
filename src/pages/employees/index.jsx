@@ -1,5 +1,4 @@
-import React from "react";
-import TableDemo from "../../components/TableDemo";
+import { TableDemo } from "../../components";
 import { teamData, teamColumns } from "../../data/teamsData";
 const index = () => {
   return (
